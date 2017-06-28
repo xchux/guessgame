@@ -1,0 +1,2 @@
+Guessgame_client 須以本地端開啟(為了抓取攝影機與麥克風
+Guessgame_sevre 架設於lab401之電腦，若有需要可索取帳密
