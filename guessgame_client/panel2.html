@@ -1,0 +1,82 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+var countdownnumber=100;//set playtime
+var countdownid;
+var x;
+var myscore;
+$(function(){
+	 var url = location.href;
+     
+	    //取得問號之後的值
+	    var temp = url.split("?");
+	    $("#body").data("data-store","\"from\": 10 ,\"to\":"+temp[1]);
+	   
+	   //console.log(temp[1]);
+		x=document.getElementById("countdown");
+	  x.innerHTML=countdownnumber;
+	  countdownnumber --;
+	  countdownid=window.setInterval(countdownfunc,1000);
+	  set_room_owner();
+	  register();
+	  setTimeout(function() {
+			call();
+		}, 1000);
+})
+
+function countdownfunc(){ 
+	
+  x.innerHTML=countdownnumber;
+  if (countdownnumber==0){
+    console.log("倒數結束");
+    clearInterval(countdownid);
+    myscore = getScore();
+    scorepage();
+  }
+  countdownnumber--;
+}
+
+function scorepage(){
+	window.location.href = 'http://localhost:8080/guessgame/score.html?'+ myscore+ '';
+}
+</script>
+<style>
+
+	
+</style>
+<script src="WebRTCTest.js"></script>
+</head>
+<body  id="body" style="overflow-x: hidden;overflow-y: hidden;z-index:-10;"  data-store="">
+<audio autoplay loop >
+  
+  <source src="/guessgame/music.mp3" type="audio/mpeg" />
+
+</audio>
+
+	<video id="remoteVideo"  autoplay style="position:absolute;top:0%;left:0%;width:100%;height:100%;">
+		zzz
+	</video>
+	
+	<div style="background-color:#ea4d1b;position:absolute;left:0.5%;top:1%;width:10%;height:15%;text-align:center;font-weight:bold;line-height:95px;font-size:50px;border-radius:25px;border:solid;">
+			<p id="countdown" ></p>
+	</div>
+	<button style="position:absolute;left:2.5%;top:18%;" id="start" type="button" class="btn btn-warning btn-md" onclick="javascript:startGame();"><nobr style="font-weight:bold">開始遊戲</nobr></button>
+    <input type="text" id="answer" style="position:absolute;left:28%;bottom:5%;width:40%;height:25%;font-weight:bold;line-height:160px;font-size:60px;border-radius:25px;letter-spacing:15px;text-align:center;">
+			
+	</input>
+	
+	 <button style="position:absolute;right:26%;bottom:6%;width:5%;height:10%;border-radius:10px;" type="button" class="btn btn-success btn-md" onclick="javascript:checkAns();"><nobr style="font-weight:bold">確認</nobr></button>
+	 
+	<div style="background-color:#ea4d1b;position:absolute;right:1%;top:1%;width:10%;height:15%;text-align:center;font-weight:bold;line-height:95px;font-size:50px;border-radius:25px;border:solid;">
+			<p id="paneltwoscore">0</p>
+	</div>
+	
+	 <button id="startButton" style="position:absolute;right:2%;bottom:5%;" type="button" class="btn btn-warning btn-md" onclick="javascript:startGame();"><nobr style="font-weight:bold">skip</nobr></button>
+    </div>
+   
+      
+</body>
+</html>

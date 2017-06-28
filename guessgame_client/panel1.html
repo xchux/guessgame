@@ -1,0 +1,68 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+var countdownnumber=100;//set playtime
+var countdownid,x;
+var myscore;
+$(function(){
+	 var url = location.href;
+     
+	    //取得問號之後的值
+	    var temp = url.split("?");
+	    $("#body").data("data-store","\"from\":"+temp[1]+" ,\"to\":10");
+	  // console.log(temp[1]);
+		x=document.getElementById("countdown");
+	  x.innerHTML=countdownnumber;
+	  countdownnumber--;
+	  countdownid=window.setInterval(countdownfunc,1000);
+	  set_room_owner();
+	  register();
+})
+
+function countdownfunc(){ 
+  x.innerHTML=countdownnumber;
+  if (countdownnumber==0){
+    console.log("倒數結束");
+    clearInterval(countdownid);
+    myscore = getScore();
+    scorepage();
+  }
+  countdownnumber--;
+}
+
+function scorepage(){
+	 window.location.href = 'http://localhost:8080/guessgame/score.html?'+myscore+'';
+	
+}
+</script>
+<style>
+
+	
+</style>
+<script src="WebRTCTest.js"></script>
+</head>
+<body id="body" style="overflow-x: hidden;overflow-y: hidden;z-index:-10;"  >
+	
+
+	<video id="remoteVideo"  autoplay style="position:absolute;top:0%;left:0%;width:100%;height:100%;">
+		zzz
+	</video>
+	<div style="background-color:#ea4d1b;position:absolute;left:0.5%;top:1%;width:10%;height:15%;text-align:center;font-weight:bold;line-height:95px;font-size:50px;border-radius:25px;border:solid;">
+			<p id="countdown" ></p>
+	</div>
+	 
+    <div id="question" style="background-color:#CDDC39;position:absolute;left:35%;top:1%;width:28%;height:25%;font-weight:bold;line-height:160px;font-size:60px;border-radius:25px;letter-spacing:15px;text-align:center;">
+			比手畫腳
+	</div>
+	<div style="background-color:#ea4d1b;position:absolute;right:1%;top:1%;width:10%;height:15%;text-align:center;font-weight:bold;line-height:95px;font-size:50px;border-radius:25px;border:solid;">
+			<p id="panelonescore">0</p>
+	</div>
+	
+    </div>
+   
+      
+</body>
+</html>

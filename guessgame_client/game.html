@@ -1,0 +1,99 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<script>
+function goto1(){
+	var id=$("#createIDnumer").val() ;
+	
+	scorepage("\panel1.html?"+id);
+	
+}
+function goto2(){
+	var id=$("#entryIDnumer").val() ;
+	
+	scorepage("\panel2.html?"+id);
+}
+
+function scorepage(href){
+	//console.log(href);
+	 window.location.href = href;
+	
+}
+</script>
+</head>
+<body style="overflow-x: hidden;background-image:url('giphy.gif');background-repeat:none;background-size:cover;background-position:-50%">
+<div style="position:relative;top:30%;left:40%;">
+<br><br><br>
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#drawup" style="width:20%;">
+  我要出題
+</button>
+<br><br><br>
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#guess" style="width:20%;">
+  我要猜題
+</button>
+
+
+<div class="modal fade" id="drawup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <!-- 出題 -->
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel" style="font-weight: bold;">請創建ID</h4>
+                </div>
+                <div class="modal-body">
+                    <br>
+                    <form >
+                        <center>
+                            <big><nobr style="font-weight:bold;">請輸入ID &nbsp :
+									&nbsp </nobr></big>
+                            <input type="text" name="roomNumber" id="createIDnumer"></input>
+                            <center>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button id="createButton" type="button" class="btn btn-primary" onclick="javascript:goto1()">進入</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">關閉</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<div class="modal fade" id="guess" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <!-- 猜題 -->
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel" style="font-weight: bold;">請輸入ID</h4>
+                </div>
+                <div class="modal-body">
+                    <br>
+                    <form >
+                        <center>
+                            <big><nobr style="font-weight:bold;">輸入ID &nbsp :
+									&nbsp </nobr></big>
+                            <input type="text" name="roomNumber" id="entryIDnumer"></input>
+                            <center>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button id="createButton" type="button" class="btn btn-primary" onclick="javascript:goto2()">進入</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">關閉</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

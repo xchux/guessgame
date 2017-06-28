@@ -1,0 +1,30 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<script>
+	$(function(){
+		 var url = location.href;
+	     
+		    //取得問號之後的值
+		    var temp = url.split("?");
+		    $("#finalscore").text(temp[1]);
+		   console.log(temp[1]);
+	})
+</script>
+</head>
+<body style="overflow-x: hidden;background-image:url('cartoon.gif');background-repeat:none;background-size:100% 100%;">
+<div style="position:absolute;background-image: -webkit-linear-gradient(top,#FF5722  0,#FFEB3B  100%);width:100%;height:30%;font-weight:bold;font-size:70px;text-align:center;line-height:180px;color:#000000;text-shadow:#e6dde0 2px 2px 2px;border-radius:25px;letter-spacing:40px;">
+	答對題數
+</div>
+
+<div style="position:absolute;top:55%;left:30%;width:40%;height:30%;font-weight:bold;font-size:400px;text-align:center;line-height:180px;color:#ea1a0a;text-shadow:#e6dde0 2px 2px 2px;">
+	<p id="finalscore">7</p>
+</div>
+
+
+
+</body>
+</html>

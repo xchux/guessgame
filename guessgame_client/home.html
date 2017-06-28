@@ -1,0 +1,61 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+</head>
+<body style="overflow-x: hidden;background-image:url('background.gif');">
+<div style="position:relative;top:30%;left:40%;">
+<!-- 改位置 -->
+<button type="button" class="btn btn-primary btn-lg" onclick="javascript:location.href='game.html'" style="width:20%;">
+  開始遊戲
+</button>
+<br><br><br>
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#instructions" style="width:20%;">
+  遊戲說明
+</button>
+<br><br><br>
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#about" style="width:20%;">
+  關於技術
+</button>
+</div>
+
+
+<div class="modal fade" id="instructions" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"> <!-- 使用說明 -->
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel" style="font-weight:bold;">使用教學</h4>
+      </div>
+      <div class="modal-body">
+			<center><big><nobr style="font-weight:bold;">按下首頁的進入房間按鈕後會跳出房號視窗，<br>若是創建者則可隨便輸入方便記憶的房間號碼，<br>若是進入者則輸入對應的房間號碼，即可進入視訊畫板頁面，<br>並可使用底部的繪畫功能(調整畫筆顏色、寬度)，和其他繪畫功能，<br>而在繪畫完成後按下送出畫板後即可將畫板傳送至對方視訊中。</nobr></big></center>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">我瞭解了</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="about" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"> <!-- 關於我們 -->
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel" style="font-weight:bold;">背後技術</h4>
+      </div>
+      <div class="modal-body">
+		<center><big><nobr style="font-weight:bold;">此WebRTC畫板視訊同步網站可提供使用者在教學、娛樂或是各方應用上，<br>而WebRTC為一款網頁即時通訊的新穎技術，<br>它可以讓瀏覽器在不需要安裝任何外掛的情況下，<br>直接提供遠端視訊聊天的功能，而我們將畫板結合WebRTC的應用，<br>讓使用者不僅可視訊，也能在上面手寫內容給予對方觀看。</nobr></big></center>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">關閉</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
